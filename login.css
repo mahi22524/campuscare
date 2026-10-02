@@ -1,0 +1,382 @@
+/* ========================================================
+   CampusCare - Login Screen Styles
+   St. Peter's Engineering College Maroon/White Theme
+   ======================================================== */
+
+.login-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Elevated Login Card */
+.login-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(120, 18, 38, 0.12);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Card Maroon Header Bar */
+.card-top-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-maroon-dark) 0%, var(--color-maroon) 50%, var(--color-gold) 100%);
+}
+
+.login-card-header {
+  padding: 2rem 2rem 1.25rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-maroon-subtle) 100%);
+}
+
+.brand-emblem-small {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 0.85rem auto;
+  display: block;
+}
+
+.login-system-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-maroon-dark);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.title-highlight {
+  color: var(--color-maroon);
+}
+
+.login-subtitle {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+
+/* Role Selector Segmented Control */
+.role-selector-container {
+  padding: 1.25rem 2rem 0.5rem 2rem;
+}
+
+.role-selector-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-maroon);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.role-selector-label span.hint {
+  font-weight: 500;
+  text-transform: none;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.role-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #EEF2F6;
+  padding: 4px;
+  border-radius: var(--radius-md);
+  gap: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.role-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all var(--transition-fast);
+}
+
+.role-tab-btn .role-icon {
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.role-tab-btn:hover {
+  color: var(--color-maroon);
+}
+
+.role-tab-btn.active {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  box-shadow: 0 3px 8px rgba(120, 18, 38, 0.28);
+}
+
+.role-tab-btn.active .role-icon {
+  transform: translateY(-1px);
+}
+
+/* Card Form Body */
+.login-card-body {
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 0.4rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 0.95rem;
+  color: var(--color-text-light);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.65rem;
+  font-size: 0.92rem;
+  font-family: inherit;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-main);
+  background-color: #FAFAFC;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-control:focus {
+  background-color: var(--color-white);
+  border-color: var(--color-maroon);
+  box-shadow: 0 0 0 3.5px var(--color-maroon-glow);
+}
+
+.input-with-toggle .form-control {
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-maroon);
+}
+
+/* Remember me & Forgot Password */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  font-size: 0.83rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: var(--color-maroon);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  color: var(--color-maroon);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.forgot-password-link:hover {
+  color: var(--color-maroon-dark);
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn-login {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-dark) 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(120, 18, 38, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, var(--color-maroon-light) 0%, var(--color-maroon) 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 16px rgba(120, 18, 38, 0.42);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Quick Demo Access Bar */
+.demo-access-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  background: var(--color-bg-page);
+  border: 1px dashed rgba(120, 18, 38, 0.25);
+  border-radius: var(--radius-md);
+}
+
+.demo-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.demo-chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.demo-chip-btn {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transition: all var(--transition-fast);
+}
+
+.demo-chip-btn .chip-sub {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.demo-chip-btn:hover {
+  border-color: var(--color-maroon);
+  background: var(--color-maroon-subtle);
+  color: var(--color-maroon);
+}
+
+/* Security Guarantee / Trust Badge */
+.security-note {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.security-note svg {
+  color: var(--color-gold-dark);
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .login-card-header {
+    padding: 1.5rem 1.25rem 1rem 1.25rem;
+  }
+  .role-selector-container {
+    padding: 1rem 1.25rem 0.25rem 1.25rem;
+  }
+  .login-card-body {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  }
+  .login-system-title {
+    font-size: 1.25rem;
+  }
+}

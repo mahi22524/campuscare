@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B1A31" />
+      <stop offset="100%" stop-color="#540C1A" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3D179" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#997A15" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25" flood-color="#000000"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Shield Badge -->
+  <path d="M100 12 L168 38 C168 108 140 162 100 188 C60 162 32 108 32 38 Z" 
+        fill="url(#maroonGrad)" 
+        stroke="url(#goldGrad)" 
+        stroke-width="5" 
+        filter="url(#shadow)" />
+
+  <!-- Inner Shield Inset -->
+  <path d="M100 22 L158 45 C158 102 134 150 100 174 C66 150 42 102 42 45 Z" 
+        fill="none" 
+        stroke="rgba(255, 255, 255, 0.25)" 
+        stroke-width="2" 
+        stroke-dasharray="3,3" />
+
+  <!-- Academic Torch / Key / Gear motif -->
+  <!-- Gear / Cog behind torch representing Engineering -->
+  <g transform="translate(100, 95) scale(0.65)" opacity="0.25" stroke="#FFFFFF" fill="none" stroke-width="4">
+    <circle r="42" stroke-dasharray="14,14" stroke-width="8"/>
+    <circle r="26"/>
+  </g>
+
+  <!-- Open Book representing Learning -->
+  <path d="M72 118 C82 114 94 116 100 122 C106 116 118 114 128 118 L128 136 C118 132 106 134 100 140 C94 134 82 132 72 136 Z" 
+        fill="#FFFFFF" 
+        stroke="url(#goldGrad)" 
+        stroke-width="2" />
+  <line x1="100" y1="122" x2="100" y2="140" stroke="#7A1228" stroke-width="2"/>
+
+  <!-- Academic Mortarboard (Cap) -->
+  <polygon points="100,52 142,68 100,84 58,68" fill="url(#goldGrad)" stroke="#FFFFFF" stroke-width="1.5" />
+  <path d="M74 76 L74 96 C74 104 126 104 126 96 L126 76" fill="url(#goldGrad)" opacity="0.9" />
+  <path d="M136 71 L146 88 L142 98" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="142" cy="100" r="3" fill="#D4AF37"/>
+
+  <!-- Star accents -->
+  <polygon points="100,100 102,106 108,106 103,110 105,116 100,112 95,116 97,110 92,106 98,106" fill="#F3D179"/>
+  <polygon points="68,90 69,93 72,93 70,95 71,98 68,96 65,98 66,95 64,93 67,93" fill="#F3D179" opacity="0.8"/>
+  <polygon points="132,90 133,93 136,93 134,95 135,98 132,96 129,98 130,95 128,93 131,93" fill="#F3D179" opacity="0.8"/>
+
+  <!-- Banner at bottom: SPEC -->
+  <path d="M60 162 Q100 172 140 162 L136 152 Q100 160 64 152 Z" fill="url(#goldGrad)" />
+  <text x="100" y="161" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="900" fill="#540C1A" text-anchor="middle" letter-spacing="2">SPEC</text>
+</svg>

@@ -1,0 +1,2170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCare - St. Peter's Engineering College | Login</title>
+  <style>
+/* ========================================================
+   CampusCare - Design Tokens & Variables
+   St. Peter's Engineering College Maroon & White Theme
+   ======================================================== */
+
+:root {
+  /* Brand Palette - St. Peter's Maroon / Burgundy */
+  --color-maroon-darker: #4A0B17;
+  --color-maroon-dark:   #5C0E1D;
+  --color-maroon:        #781226;  /* Primary College Maroon */
+  --color-maroon-light:  #941931;
+  --color-maroon-subtle: #FBF0F2;
+  --color-maroon-glow:   rgba(120, 18, 38, 0.18);
+
+  /* Accent - Academic Gold */
+  --color-gold:          #C89B2B;
+  --color-gold-light:    #E9BD4D;
+  --color-gold-soft:     #FFF8E7;
+  --color-gold-dark:     #9A7318;
+
+  /* Neutrals */
+  --color-white:         #FFFFFF;
+  --color-bg-page:       #F7F8FA;
+  --color-surface:       #FFFFFF;
+  --color-border:        #E2E8F0;
+  --color-border-hover:  #CBD5E1;
+  
+  /* Text */
+  --color-text-main:     #1E293B;
+  --color-text-muted:    #64748B;
+  --color-text-light:    #94A3B8;
+  --color-text-inverse:  #FFFFFF;
+
+  /* Feedback Colors */
+  --color-success:       #0F766E;
+  --color-success-bg:    #E6FFFA;
+  --color-danger:        #B91C1C;
+  --color-danger-bg:     #FEF2F2;
+  --color-warning:       #B45309;
+  --color-warning-bg:    #FFFBEB;
+  --color-info:          #1D4ED8;
+  --color-info-bg:       #EFF6FF;
+
+  /* Typography */
+  --font-family-base:    'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif:   'Georgia', 'Times New Roman', serif;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg:  0 10px 25px -3px rgba(120, 18, 38, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl:  0 20px 40px -5px rgba(92, 14, 29, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.06);
+
+  /* Border Radii */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s ease;
+}
+
+
+/* ========================================================
+   CampusCare - Global Base Styles & Layout
+   St. Peter's Engineering College
+   ======================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-page);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* College Top Strip */
+.top-strip {
+  background: var(--color-maroon-darker);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  padding: 0.4rem 1.5rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.top-strip-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-strip-badges {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-strip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.top-strip-contact {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.top-strip-contact a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.top-strip-contact a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* Main Institutional Header */
+.main-header {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.college-logo-img {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(92, 14, 29, 0.15));
+}
+
+.college-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.college-name {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--color-maroon);
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.college-affiliation {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin-top: 2px;
+}
+
+.system-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-maroon-subtle);
+  border: 1px solid rgba(120, 18, 38, 0.15);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+.system-tag {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+}
+
+.system-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-maroon-dark);
+}
+
+/* Page Content Main Container */
+.page-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+}
+
+/* College Institutional Background watermark/pattern */
+.page-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(120, 18, 38, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(200, 155, 43, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--color-maroon-darker);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+  padding: 1.5rem;
+  margin-top: auto;
+  border-top: 3px solid var(--color-gold);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.toast {
+  min-width: 300px;
+  max-width: 420px;
+  padding: 0.9rem 1.2rem;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  pointer-events: auto;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-left: 5px solid;
+}
+
+.toast.toast-success {
+  border-color: var(--color-success);
+  color: var(--color-text-main);
+}
+.toast.toast-success .toast-icon {
+  color: var(--color-success);
+}
+
+.toast.toast-error {
+  border-color: var(--color-danger);
+  color: var(--color-text-main);
+}
+.toast.toast-error .toast-icon {
+  color: var(--color-danger);
+}
+
+.toast.toast-info {
+  border-color: var(--color-maroon);
+  color: var(--color-text-main);
+}
+.toast.toast-info .toast-icon {
+  color: var(--color-maroon);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Modal Styles for "Forgot Password" & Help */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: var(--color-white);
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform var(--transition-base);
+  border: 1px solid var(--color-border);
+}
+
+.modal-overlay.active .modal-box {
+  transform: scale(1);
+}
+
+.modal-header {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: var(--color-text-main);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  background: var(--color-bg-page);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .top-strip-container, .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .college-name {
+    font-size: 1.05rem;
+  }
+
+  .system-title-badge {
+    align-self: flex-start;
+  }
+}
+
+
+/* ========================================================
+   CampusCare - Login Screen Styles
+   St. Peter's Engineering College Maroon/White Theme
+   ======================================================== */
+
+.login-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Elevated Login Card */
+.login-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(120, 18, 38, 0.12);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Card Maroon Header Bar */
+.card-top-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-maroon-dark) 0%, var(--color-maroon) 50%, var(--color-gold) 100%);
+}
+
+.login-card-header {
+  padding: 2rem 2rem 1.25rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-maroon-subtle) 100%);
+}
+
+.brand-emblem-small {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 0.85rem auto;
+  display: block;
+}
+
+.login-system-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-maroon-dark);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.title-highlight {
+  color: var(--color-maroon);
+}
+
+.login-subtitle {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+
+/* Role Selector Segmented Control */
+.role-selector-container {
+  padding: 1.25rem 2rem 0.5rem 2rem;
+}
+
+.role-selector-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-maroon);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.role-selector-label span.hint {
+  font-weight: 500;
+  text-transform: none;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.role-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #EEF2F6;
+  padding: 4px;
+  border-radius: var(--radius-md);
+  gap: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.role-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all var(--transition-fast);
+}
+
+.role-tab-btn .role-icon {
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.role-tab-btn:hover {
+  color: var(--color-maroon);
+}
+
+.role-tab-btn.active {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  box-shadow: 0 3px 8px rgba(120, 18, 38, 0.28);
+}
+
+.role-tab-btn.active .role-icon {
+  transform: translateY(-1px);
+}
+
+/* Card Form Body */
+.login-card-body {
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 0.4rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 0.95rem;
+  color: var(--color-text-light);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.65rem;
+  font-size: 0.92rem;
+  font-family: inherit;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-main);
+  background-color: #FAFAFC;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-control:focus {
+  background-color: var(--color-white);
+  border-color: var(--color-maroon);
+  box-shadow: 0 0 0 3.5px var(--color-maroon-glow);
+}
+
+.input-with-toggle .form-control {
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-maroon);
+}
+
+/* Remember me & Forgot Password */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  font-size: 0.83rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: var(--color-maroon);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  color: var(--color-maroon);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.forgot-password-link:hover {
+  color: var(--color-maroon-dark);
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn-login {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-dark) 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(120, 18, 38, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, var(--color-maroon-light) 0%, var(--color-maroon) 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 16px rgba(120, 18, 38, 0.42);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Quick Demo Access Bar */
+.demo-access-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  background: var(--color-bg-page);
+  border: 1px dashed rgba(120, 18, 38, 0.25);
+  border-radius: var(--radius-md);
+}
+
+.demo-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.demo-chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.demo-chip-btn {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transition: all var(--transition-fast);
+}
+
+.demo-chip-btn .chip-sub {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.demo-chip-btn:hover {
+  border-color: var(--color-maroon);
+  background: var(--color-maroon-subtle);
+  color: var(--color-maroon);
+}
+
+/* Security Guarantee / Trust Badge */
+.security-note {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.security-note svg {
+  color: var(--color-gold-dark);
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .login-card-header {
+    padding: 1.5rem 1.25rem 1rem 1.25rem;
+  }
+  .role-selector-container {
+    padding: 1rem 1.25rem 0.25rem 1.25rem;
+  }
+  .login-card-body {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  }
+  .login-system-title {
+    font-size: 1.25rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip - Institutional Accreditations & Help -->
+  <div class="top-strip">
+    <div class="top-strip-container">
+      <div class="top-strip-badges">
+        <span class="top-strip-badge">★ UGC Autonomous Institution</span>
+        <span class="top-strip-badge">★ NAAC 'A' Grade</span>
+        <span class="top-strip-badge">★ NBA Accredited</span>
+      </div>
+      <div class="top-strip-contact">
+        <a href="tel:+914023792222">📞 Campus Helpdesk: 040-23792222</a>
+        <button type="button" onclick="StorageService.resetToDefaults(); alert('Demo data reset to initial sample state!');" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #FFF; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px; cursor: pointer; font-weight: 600;">
+          🔄 Reset Demo Data
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Institutional Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="college-logo-img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B1A31" />
+      <stop offset="100%" stop-color="#540C1A" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3D179" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#997A15" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25" flood-color="#000000"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Shield Badge -->
+  <path d="M100 12 L168 38 C168 108 140 162 100 188 C60 162 32 108 32 38 Z" 
+        fill="url(#maroonGrad)" 
+        stroke="url(#goldGrad)" 
+        stroke-width="5" 
+        filter="url(#shadow)" />
+
+  <!-- Inner Shield Inset -->
+  <path d="M100 22 L158 45 C158 102 134 150 100 174 C66 150 42 102 42 45 Z" 
+        fill="none" 
+        stroke="rgba(255, 255, 255, 0.25)" 
+        stroke-width="2" 
+        stroke-dasharray="3,3" />
+
+  <!-- Academic Torch / Key / Gear motif -->
+  <!-- Gear / Cog behind torch representing Engineering -->
+  <g transform="translate(100, 95) scale(0.65)" opacity="0.25" stroke="#FFFFFF" fill="none" stroke-width="4">
+    <circle r="42" stroke-dasharray="14,14" stroke-width="8"/>
+    <circle r="26"/>
+  </g>
+
+  <!-- Open Book representing Learning -->
+  <path d="M72 118 C82 114 94 116 100 122 C106 116 118 114 128 118 L128 136 C118 132 106 134 100 140 C94 134 82 132 72 136 Z" 
+        fill="#FFFFFF" 
+        stroke="url(#goldGrad)" 
+        stroke-width="2" />
+  <line x1="100" y1="122" x2="100" y2="140" stroke="#7A1228" stroke-width="2"/>
+
+  <!-- Academic Mortarboard (Cap) -->
+  <polygon points="100,52 142,68 100,84 58,68" fill="url(#goldGrad)" stroke="#FFFFFF" stroke-width="1.5" />
+  <path d="M74 76 L74 96 C74 104 126 104 126 96 L126 76" fill="url(#goldGrad)" opacity="0.9" />
+  <path d="M136 71 L146 88 L142 98" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="142" cy="100" r="3" fill="#D4AF37"/>
+
+  <!-- Star accents -->
+  <polygon points="100,100 102,106 108,106 103,110 105,116 100,112 95,116 97,110 92,106 98,106" fill="#F3D179"/>
+  <polygon points="68,90 69,93 72,93 70,95 71,98 68,96 65,98 66,95 64,93 67,93" fill="#F3D179" opacity="0.8"/>
+  <polygon points="132,90 133,93 136,93 134,95 135,98 132,96 129,98 130,95 128,93 131,93" fill="#F3D179" opacity="0.8"/>
+
+  <!-- Banner at bottom: SPEC -->
+  <path d="M60 162 Q100 172 140 162 L136 152 Q100 160 64 152 Z" fill="url(#goldGrad)" />
+  <text x="100" y="161" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="900" fill="#540C1A" text-anchor="middle" letter-spacing="2">SPEC</text>
+</svg>
+
+        </div>
+        <div class="college-titles">
+          <h1 class="college-name">St. Peter's Engineering College</h1>
+          <p class="college-affiliation">Maisammaguda, Opp. Forest Academy, Medchal, Hyderabad, Telangana - 500100</p>
+        </div>
+      </div>
+      
+      <div class="system-title-badge">
+        <span class="system-tag">PORTAL</span>
+        <span class="system-name">CampusCare System</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content - Centered Login Card -->
+  <main class="page-main">
+    <div class="login-wrapper">
+      
+      <div class="login-card">
+        <!-- Maroon / Gold Top Strip -->
+        <div class="card-top-bar"></div>
+
+        <!-- Card Header -->
+        <div class="login-card-header">
+          <div class="brand-emblem-small">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B1A31" />
+      <stop offset="100%" stop-color="#540C1A" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3D179" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#997A15" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25" flood-color="#000000"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Shield Badge -->
+  <path d="M100 12 L168 38 C168 108 140 162 100 188 C60 162 32 108 32 38 Z" 
+        fill="url(#maroonGrad)" 
+        stroke="url(#goldGrad)" 
+        stroke-width="5" 
+        filter="url(#shadow)" />
+
+  <!-- Inner Shield Inset -->
+  <path d="M100 22 L158 45 C158 102 134 150 100 174 C66 150 42 102 42 45 Z" 
+        fill="none" 
+        stroke="rgba(255, 255, 255, 0.25)" 
+        stroke-width="2" 
+        stroke-dasharray="3,3" />
+
+  <!-- Academic Torch / Key / Gear motif -->
+  <!-- Gear / Cog behind torch representing Engineering -->
+  <g transform="translate(100, 95) scale(0.65)" opacity="0.25" stroke="#FFFFFF" fill="none" stroke-width="4">
+    <circle r="42" stroke-dasharray="14,14" stroke-width="8"/>
+    <circle r="26"/>
+  </g>
+
+  <!-- Open Book representing Learning -->
+  <path d="M72 118 C82 114 94 116 100 122 C106 116 118 114 128 118 L128 136 C118 132 106 134 100 140 C94 134 82 132 72 136 Z" 
+        fill="#FFFFFF" 
+        stroke="url(#goldGrad)" 
+        stroke-width="2" />
+  <line x1="100" y1="122" x2="100" y2="140" stroke="#7A1228" stroke-width="2"/>
+
+  <!-- Academic Mortarboard (Cap) -->
+  <polygon points="100,52 142,68 100,84 58,68" fill="url(#goldGrad)" stroke="#FFFFFF" stroke-width="1.5" />
+  <path d="M74 76 L74 96 C74 104 126 104 126 96 L126 76" fill="url(#goldGrad)" opacity="0.9" />
+  <path d="M136 71 L146 88 L142 98" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="142" cy="100" r="3" fill="#D4AF37"/>
+
+  <!-- Star accents -->
+  <polygon points="100,100 102,106 108,106 103,110 105,116 100,112 95,116 97,110 92,106 98,106" fill="#F3D179"/>
+  <polygon points="68,90 69,93 72,93 70,95 71,98 68,96 65,98 66,95 64,93 67,93" fill="#F3D179" opacity="0.8"/>
+  <polygon points="132,90 133,93 136,93 134,95 135,98 132,96 129,98 130,95 128,93 131,93" fill="#F3D179" opacity="0.8"/>
+
+  <!-- Banner at bottom: SPEC -->
+  <path d="M60 162 Q100 172 140 162 L136 152 Q100 160 64 152 Z" fill="url(#goldGrad)" />
+  <text x="100" y="161" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="900" fill="#540C1A" text-anchor="middle" letter-spacing="2">SPEC</text>
+</svg>
+
+          </div>
+          <h2 class="login-system-title">
+            <span>Campus</span><span class="title-highlight">Care</span>
+          </h2>
+          <p class="login-subtitle">Smart Campus Complaint & Maintenance Management</p>
+        </div>
+
+        <!-- Role Selector Segmented Control -->
+        <div class="role-selector-container">
+          <div class="role-selector-label">
+            <span>Select Login Role</span>
+            <span class="hint">Choose your campus role</span>
+          </div>
+
+          <div class="role-tabs" role="tablist">
+            <button type="button" class="role-tab-btn active" data-role="student" role="tab" aria-selected="true">
+              <span class="role-icon">👨‍🎓</span>
+              <span>Student</span>
+            </button>
+            <button type="button" class="role-tab-btn" data-role="admin" role="tab" aria-selected="false">
+              <span class="role-icon">🏛️</span>
+              <span>Admin</span>
+            </button>
+            <button type="button" class="role-tab-btn" data-role="staff" role="tab" aria-selected="false">
+              <span class="role-icon">🔧</span>
+              <span>Staff</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form Body -->
+        <div class="login-card-body">
+          <form id="loginForm" autocomplete="on">
+
+            <!-- Identifier / Email Field -->
+            <div class="form-group">
+              <label id="identifierLabel" class="form-label" for="identifierInput">
+                Student Roll No. / Email
+              </label>
+              <div class="input-with-icon">
+                <span id="identifierIcon" class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="identifierInput" 
+                  class="form-control" 
+                  placeholder="e.g., 21SPEC0142 or student@stpeters.edu.in" 
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Password Field with Visibility Toggle -->
+            <div class="form-group">
+              <label class="form-label" for="passwordInput">Password</label>
+              <div class="input-with-icon input-with-toggle">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </span>
+                <input 
+                  type="password" 
+                  id="passwordInput" 
+                  class="form-control" 
+                  placeholder="Enter your account password" 
+                  required
+                >
+                <button type="button" id="togglePasswordBtn" class="password-toggle-btn" aria-label="Show password">
+                  <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="form-options">
+              <label class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <span>Remember me</span>
+              </label>
+              <a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot password?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="btn-login">
+              <span id="submitSpinner" class="spinner"></span>
+              <span id="submitText">Sign In to CampusCare</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <!-- Quick Demo Credentials Box -->
+            <div class="demo-access-box">
+              <div class="demo-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Quick Demo Fill (1-Click Test)</span>
+              </div>
+              <div class="demo-chips">
+                <button type="button" class="demo-chip-btn" data-demo-role="student">
+                  <span>Student</span>
+                  <span class="chip-sub">Aarav (CSE)</span>
+                </button>
+                <button type="button" class="demo-chip-btn" data-demo-role="admin">
+                  <span>Admin</span>
+                  <span class="chip-sub">Dr. Rao</span>
+                </button>
+                <button type="button" class="demo-chip-btn" data-demo-role="staff">
+                  <span>Staff</span>
+                  <span class="chip-sub">M. Ramesh</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Security Footnote -->
+            <div class="security-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Authorized St. Peter's Campus Network Access Only</span>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Institutional Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <p>© 2026 St. Peter's Engineering College (SPEC). All Rights Reserved.</p>
+        <p style="opacity: 0.7; font-size: 0.75rem; margin-top: 3px;">CampusCare Complaint & Maintenance Tracking Prototype</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://stpetershyd.com" target="_blank" rel="noopener">College Official Website</a>
+        <a href="#it-helpdesk">Campus IT Cell</a>
+        <a href="#security-guidelines">Maintenance Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">
+          <span>🔐</span> Password Assistance
+        </h3>
+        <button type="button" id="closeForgotModal" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>CampusCare Account Credentials:</strong></p>
+        <p style="margin-top: 0.5rem; margin-bottom: 0.8rem;">
+          CampusCare is synchronized with the <strong>St. Peter's College ERP / Student Information System</strong>:
+        </p>
+        <ul style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--color-text-main);">
+          <li><strong>Students:</strong> Your default password corresponds to your registered College ERP portal password.</li>
+          <li><strong>Staff & Admins:</strong> Please use your authorized institutional faculty credentials.</li>
+        </ul>
+        <div style="background: var(--color-maroon-subtle); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--color-maroon); font-size: 0.85rem;">
+          💡 <strong>Prototype Tip:</strong> During this demonstration phase, you can immediately log in by clicking any role button in the <em>"Quick Demo Fill"</em> section on the login card!
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="dismissModalBtn" style="background: var(--color-maroon); color: white; border: none; padding: 0.55rem 1.25rem; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+          Got it
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self-Contained Scripts -->
+  <script>
+/**
+ * CampusCare - Central Mock Data Store & Storage Service
+ * St. Peter's Engineering College, Maisammaguda
+ * 
+ * Provides mock users, staff roster, departments, categories,
+ * locations, and initial seed complaints with full timeline history.
+ */
+
+const CAMPUS_CARE_MOCK = {
+  // Pre-configured users for prototype demonstration
+  users: [
+    {
+      id: "21SPEC0142",
+      role: "student",
+      name: "Aarav Sharma",
+      email: "student@stpeters.edu.in",
+      password: "student123",
+      department: "Computer Science & Engineering",
+      year: "3rd Year B.Tech",
+      phone: "+91 98765 43210",
+      hostelOrDay: "Day Scholar (Route 14 Bus)",
+      avatar: "ðŸ‘¨â€ðŸŽ“"
+    },
+    {
+      id: "admin",
+      role: "admin",
+      name: "Dr. K. S. Rao",
+      email: "admin@stpeters.edu.in",
+      password: "admin123",
+      department: "Campus Works & Administration",
+      designation: "Chief Maintenance Officer",
+      phone: "+91 98765 11111",
+      avatar: "ðŸ›ï¸"
+    },
+    {
+      id: "staff_elec",
+      role: "staff",
+      name: "M. Ramesh",
+      email: "staff@stpeters.edu.in",
+      password: "staff123",
+      department: "Electrical & Lighting",
+      designation: "Senior Campus Electrician",
+      specialization: "Electrical & Power Systems",
+      phone: "+91 98765 22222",
+      avatar: "âš¡"
+    }
+  ],
+
+  // Full Maintenance Staff Directory for Admin Assignment
+  staffDirectory: [
+    {
+      id: "staff_elec",
+      name: "M. Ramesh",
+      category: "Electrical",
+      designation: "Senior Electrician",
+      email: "staff@stpeters.edu.in",
+      phone: "+91 98765 22222",
+      avatar: "âš¡",
+      activeTasks: 1
+    },
+    {
+      id: "staff_plumb",
+      name: "K. Narayana",
+      category: "Plumbing",
+      designation: "Water Supply & Plumbing Specialist",
+      email: "plumbing@stpeters.edu.in",
+      phone: "+91 98765 33333",
+      avatar: "ðŸš°",
+      activeTasks: 1
+    },
+    {
+      id: "staff_net",
+      name: "S. Suresh",
+      category: "Wi-Fi/Network",
+      designation: "Campus Network & IT Technician",
+      email: "network@stpeters.edu.in",
+      phone: "+91 98765 44444",
+      avatar: "ðŸ“¶",
+      activeTasks: 1
+    },
+    {
+      id: "staff_civil",
+      name: "V. Anand",
+      category: "Classroom",
+      designation: "Civil & Carpentry Maintenance",
+      email: "civil@stpeters.edu.in",
+      phone: "+91 98765 55555",
+      avatar: "ðŸª‘",
+      activeTasks: 0
+    },
+    {
+      id: "staff_sanitation",
+      name: "Lakshmi Bai",
+      category: "Cleanliness",
+      designation: "Housekeeping & Sanitation Supervisor",
+      email: "housekeeping@stpeters.edu.in",
+      phone: "+91 98765 66666",
+      avatar: "ðŸ§¹",
+      activeTasks: 0
+    }
+  ],
+
+  // Complaint Categories
+  categories: [
+    { id: "Electrical", name: "Electrical", icon: "âš¡" },
+    { id: "Plumbing", name: "Plumbing", icon: "ðŸš°" },
+    { id: "Wi-Fi/Network", name: "Wi-Fi/Network", icon: "ðŸ“¶" },
+    { id: "Classroom", name: "Classroom", icon: "ðŸ«" },
+    { id: "Laboratory", name: "Laboratory", icon: "ðŸ”¬" },
+    { id: "Cleanliness", name: "Cleanliness", icon: "ðŸ§¹" },
+    { id: "Other", name: "Other", icon: "ðŸ“‹" }
+  ],
+
+  // College Buildings & Blocks
+  buildings: [
+    "Block A (Main Administrative & First Year)",
+    "Block B (ECE & EEE Wing)",
+    "Abdul Kalam Block (CSE & IT Complex)",
+    "Visvesvaraya Block (Mechanical & Civil)",
+    "Central Library & Digital Knowledge Hub",
+    "Main Seminar Hall & Auditorium",
+    "Campus Cafeteria & Food Court",
+    "Boys Hostel Block A",
+    "Girls Hostel Block B"
+  ],
+
+  floors: ["Ground Floor", "1st Floor", "2nd Floor", "3rd Floor", "4th Floor"],
+
+  // Priority Levels
+  priorities: ["Low", "Medium", "High", "Critical"],
+
+  // Realistic Initial Seed Complaints matching college scenario
+  seedComplaints: [
+    {
+      id: "CC-1001",
+      studentId: "21SPEC0142",
+      studentName: "Aarav Sharma",
+      isAnonymous: false,
+      category: "Electrical",
+      title: "Fan not working â€“ Block A, Room 204",
+      description: "Ceiling fan #2 in Room 204 makes grinding noise and suddenly stopped working during morning lecture. Needs regulator or motor capacitor check.",
+      building: "Block A (Main Administrative & First Year)",
+      floor: "2nd Floor",
+      room: "Room 204 (Section CSE-B)",
+      priority: "High",
+      status: "Submitted", // Submitted | Assigned | In Progress | Resolved
+      assignedTo: null,
+      assignedStaffName: null,
+      reportedAt: "2026-10-01T08:30:00Z",
+      updatedAt: "2026-10-01T08:30:00Z",
+      evidence: {
+        photo: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80",
+        photoName: "room_204_fan_issue.jpg",
+        video: null,
+        audio: null
+      },
+      resolution: null,
+      timeline: [
+        {
+          status: "Submitted",
+          title: "Complaint Lodged",
+          timestamp: "2026-10-01T08:30:00Z",
+          actor: "Aarav Sharma (Student)",
+          notes: "Complaint registered in CampusCare portal with high priority flag."
+        }
+      ]
+    },
+    {
+      id: "CC-1002",
+      studentId: "21SPEC0142",
+      studentName: "Aarav Sharma",
+      isAnonymous: false,
+      category: "Wi-Fi/Network",
+      title: "Wi-Fi not working â€“ Computer Lab 2",
+      description: "SPEC-Campus Wi-Fi access point in Lab 2 keeps disconnecting every 5 minutes. Students unable to access cloud lab environments.",
+      building: "Abdul Kalam Block (CSE & IT Complex)",
+      floor: "1st Floor",
+      room: "Computer Lab 2",
+      priority: "Medium",
+      status: "In Progress",
+      assignedTo: "staff_net",
+      assignedStaffName: "S. Suresh (IT Technician)",
+      reportedAt: "2026-09-30T10:15:00Z",
+      updatedAt: "2026-10-01T09:00:00Z",
+      evidence: {
+        photo: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80",
+        photoName: "lab_router_blinking_red.jpg",
+        video: null,
+        audio: null
+      },
+      resolution: null,
+      timeline: [
+        {
+          status: "Submitted",
+          title: "Complaint Lodged",
+          timestamp: "2026-09-30T10:15:00Z",
+          actor: "Aarav Sharma (Student)",
+          notes: "Reported Wi-Fi connection drops in Computer Lab 2."
+        },
+        {
+          status: "Assigned",
+          title: "Assigned to Network Team",
+          timestamp: "2026-09-30T11:45:00Z",
+          actor: "Dr. K. S. Rao (Admin)",
+          notes: "Assigned to IT technician Suresh for AP reboot and switch port inspection."
+        },
+        {
+          status: "In Progress",
+          title: "Diagnostic In Progress",
+          timestamp: "2026-10-01T09:00:00Z",
+          actor: "S. Suresh (IT Technician)",
+          notes: "Inspected network switch; firmware patch and cable re-crimping currently underway."
+        }
+      ]
+    },
+    {
+      id: "CC-1003",
+      studentId: "21SPEC0142",
+      studentName: "Aarav Sharma",
+      isAnonymous: false,
+      category: "Plumbing",
+      title: "Water leakage â€“ Block B, Floor 2",
+      description: "Severe water pipe leakage near washroom entrance in Block B 2nd floor corridor creating slippery hazard for students.",
+      building: "Block B (ECE & EEE Wing)",
+      floor: "2nd Floor",
+      room: "Corridor near Washroom B-210",
+      priority: "Critical",
+      status: "Assigned",
+      assignedTo: "staff_plumb",
+      assignedStaffName: "K. Narayana (Plumbing)",
+      reportedAt: "2026-10-01T07:45:00Z",
+      updatedAt: "2026-10-01T08:15:00Z",
+      evidence: {
+        photo: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80",
+        photoName: "washroom_leakage.jpg",
+        video: null,
+        audio: null
+      },
+      resolution: null,
+      timeline: [
+        {
+          status: "Submitted",
+          title: "Complaint Lodged",
+          timestamp: "2026-10-01T07:45:00Z",
+          actor: "Aarav Sharma (Student)",
+          notes: "Urgent leakage reported."
+        },
+        {
+          status: "Assigned",
+          title: "Assigned to Plumbing Wing",
+          timestamp: "2026-10-01T08:15:00Z",
+          actor: "Dr. K. S. Rao (Admin)",
+          notes: "Critical priority set. Assigned to Narayana. Main valve isolation requested."
+        }
+      ]
+    },
+    {
+      id: "CC-1004",
+      studentId: "21SPEC0142",
+      studentName: "Aarav Sharma",
+      isAnonymous: true,
+      category: "Classroom",
+      title: "Projector not working â€“ Seminar Hall",
+      description: "Ceiling projector HDMI port damaged and lamp warning light turns orange after 2 minutes. Department seminar scheduled for tomorrow.",
+      building: "Main Seminar Hall & Auditorium",
+      floor: "Ground Floor",
+      room: "Seminar Hall 1",
+      priority: "High",
+      status: "Resolved",
+      assignedTo: "staff_civil",
+      assignedStaffName: "V. Anand (Civil & Maintenance)",
+      reportedAt: "2026-09-28T14:00:00Z",
+      updatedAt: "2026-09-29T16:30:00Z",
+      evidence: {
+        photo: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=400&q=80",
+        photoName: "projector_fault.jpg",
+        video: null,
+        audio: null
+      },
+      resolution: {
+        resolvedBy: "V. Anand (Civil & Maintenance)",
+        resolvedAt: "2026-09-29T16:30:00Z",
+        notes: "Replaced faulty HDMI splitter and installed new OEM projector bulb. Screen test and audio output verified with laptop input.",
+        completionPhoto: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80"
+      },
+      timeline: [
+        {
+          status: "Submitted",
+          title: "Complaint Lodged (Anonymous)",
+          timestamp: "2026-09-28T14:00:00Z",
+          actor: "Anonymous Student",
+          notes: "Issue reported anonymously."
+        },
+        {
+          status: "Assigned",
+          title: "Assigned to Maintenance",
+          timestamp: "2026-09-28T15:30:00Z",
+          actor: "Dr. K. S. Rao (Admin)",
+          notes: "Assigned for urgent projector bulb and port replacement."
+        },
+        {
+          status: "In Progress",
+          title: "Hardware Replacement",
+          timestamp: "2026-09-29T11:00:00Z",
+          actor: "V. Anand",
+          notes: "Procured spare lamp unit from AV inventory."
+        },
+        {
+          status: "Resolved",
+          title: "Work Completed & Tested",
+          timestamp: "2026-09-29T16:30:00Z",
+          actor: "V. Anand",
+          notes: "Installed new bulb, HDMI cable secured, tested for 30 minutes. Operational."
+        }
+      ]
+    }
+  ]
+};
+
+// Storage Service Wrapper
+const StorageService = {
+  COMPLAINTS_KEY: "campuscare_complaints_v1",
+  ID_COUNTER_KEY: "campuscare_id_counter",
+
+  /**
+   * Initializes local storage with seed data if not present
+   */
+  init() {
+    try {
+      if (typeof localStorage === "undefined") return;
+      if (!localStorage.getItem(this.COMPLAINTS_KEY)) {
+        this.resetToDefaults();
+      }
+    } catch (e) {
+      console.warn("LocalStorage unavailable:", e);
+    }
+  },
+
+  /**
+   * Resets all complaints back to the initial sample state
+   */
+  resetToDefaults() {
+    try {
+      localStorage.setItem(this.COMPLAINTS_KEY, JSON.stringify(CAMPUS_CARE_MOCK.seedComplaints));
+      localStorage.setItem(this.ID_COUNTER_KEY, "1005");
+      return true;
+    } catch (e) {
+      console.error("Failed to reset demo data:", e);
+      return false;
+    }
+  },
+
+  /**
+   * Gets all complaints from localStorage
+   * @returns {Array}
+   */
+  getComplaints() {
+    try {
+      this.init();
+      const raw = localStorage.getItem(this.COMPLAINTS_KEY);
+      return raw ? JSON.parse(raw) : CAMPUS_CARE_MOCK.seedComplaints;
+    } catch (e) {
+      return CAMPUS_CARE_MOCK.seedComplaints;
+    }
+  },
+
+  /**
+   * Saves updated complaints list
+   * @param {Array} list
+   */
+  saveComplaints(list) {
+    try {
+      localStorage.setItem(this.COMPLAINTS_KEY, JSON.stringify(list));
+    } catch (e) {
+      console.error("Failed to save complaints:", e);
+    }
+  },
+
+  /**
+   * Adds a new complaint and generates sequential CC-100X ID
+   * @param {object} complaintData
+   * @returns {object} Newly created complaint
+   */
+  addComplaint(complaintData) {
+    const list = this.getComplaints();
+    let nextNum = 1005;
+    try {
+      const storedNum = localStorage.getItem(this.ID_COUNTER_KEY);
+      if (storedNum) nextNum = parseInt(storedNum, 10);
+    } catch (e) {}
+
+    const newId = `CC-${nextNum}`;
+    localStorage.setItem(this.ID_COUNTER_KEY, String(nextNum + 1));
+
+    const now = new Date().toISOString();
+    const newRecord = {
+      id: newId,
+      studentId: complaintData.studentId || "21SPEC0142",
+      studentName: complaintData.isAnonymous ? "Anonymous Student" : (complaintData.studentName || "Aarav Sharma"),
+      isAnonymous: !!complaintData.isAnonymous,
+      category: complaintData.category || "General",
+      title: complaintData.title,
+      description: complaintData.description,
+      building: complaintData.building,
+      floor: complaintData.floor,
+      room: complaintData.room,
+      priority: complaintData.priority || "Medium",
+      status: "Submitted",
+      assignedTo: null,
+      assignedStaffName: null,
+      reportedAt: now,
+      updatedAt: now,
+      evidence: complaintData.evidence || { photo: null, photoName: null, video: null, audio: null },
+      resolution: null,
+      timeline: [
+        {
+          status: "Submitted",
+          title: complaintData.isAnonymous ? "Complaint Lodged (Anonymous)" : "Complaint Lodged",
+          timestamp: now,
+          actor: complaintData.isAnonymous ? "Anonymous Student" : (complaintData.studentName || "Student"),
+          notes: "Complaint registered in CampusCare portal. Pending admin triage."
+        }
+      ]
+    };
+
+    list.unshift(newRecord);
+    this.saveComplaints(list);
+    return newRecord;
+  },
+
+  /**
+   * Updates an existing complaint
+   * @param {string} id
+   * @param {object} updates
+   * @returns {object|null}
+   */
+  updateComplaint(id, updates) {
+    const list = this.getComplaints();
+    const index = list.findIndex(c => c.id === id);
+    if (index === -1) return null;
+
+    const current = list[index];
+    const updated = {
+      ...current,
+      ...updates,
+      updatedAt: new Date().toISOString()
+    };
+
+    list[index] = updated;
+    this.saveComplaints(list);
+    return updated;
+  },
+
+  /**
+   * Assigns complaint to staff by Admin
+   */
+  assignComplaint(id, staffId, staffName, priority, adminNotes) {
+    const complaint = this.getComplaints().find(c => c.id === id);
+    if (!complaint) return null;
+
+    const now = new Date().toISOString();
+    const newTimeline = [...complaint.timeline, {
+      status: "Assigned",
+      title: `Assigned to ${staffName}`,
+      timestamp: now,
+      actor: "Dr. K. S. Rao (Admin)",
+      notes: adminNotes || `Assigned to ${staffName}. Priority updated to ${priority}.`
+    }];
+
+    return this.updateComplaint(id, {
+      status: "Assigned",
+      assignedTo: staffId,
+      assignedStaffName: staffName,
+      priority: priority || complaint.priority,
+      adminNotes: adminNotes || null,
+      timeline: newTimeline
+    });
+  },
+
+  /**
+   * Updates progress by Staff
+   */
+  startStaffWork(id, staffName, progressNote) {
+    const complaint = this.getComplaints().find(c => c.id === id);
+    if (!complaint) return null;
+
+    const now = new Date().toISOString();
+    const newTimeline = [...complaint.timeline, {
+      status: "In Progress",
+      title: "Work Commenced by Staff",
+      timestamp: now,
+      actor: staffName,
+      notes: progressNote || "Staff has inspected the site and initiated maintenance repairs."
+    }];
+
+    return this.updateComplaint(id, {
+      status: "In Progress",
+      timeline: newTimeline
+    });
+  },
+
+  /**
+   * Resolves complaint by Staff
+   */
+  resolveComplaint(id, staffName, resolutionNotes, completionPhoto) {
+    const complaint = this.getComplaints().find(c => c.id === id);
+    if (!complaint) return null;
+
+    const now = new Date().toISOString();
+    const newTimeline = [...complaint.timeline, {
+      status: "Resolved",
+      title: "Maintenance Completed & Verified",
+      timestamp: now,
+      actor: staffName,
+      notes: resolutionNotes || "Maintenance work completed successfully."
+    }];
+
+    return this.updateComplaint(id, {
+      status: "Resolved",
+      resolution: {
+        resolvedBy: staffName,
+        resolvedAt: now,
+        notes: resolutionNotes,
+        completionPhoto: completionPhoto || "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=400&q=80"
+      },
+      timeline: newTimeline
+    });
+  },
+
+  /**
+   * Returns staff directory list
+   */
+  getStaffMembers() {
+    return CAMPUS_CARE_MOCK.staffDirectory;
+  }
+};
+
+// Initialize on load
+StorageService.init();
+
+// Export for browser and node
+if (typeof window !== "undefined") {
+  window.CAMPUS_CARE_MOCK = CAMPUS_CARE_MOCK;
+  window.StorageService = StorageService;
+}
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { CAMPUS_CARE_MOCK, StorageService };
+}
+
+  </script>
+  <script>
+/**
+ * CampusCare - Authentication & Role Session Management
+ * St. Peter's Engineering College, Maisammaguda
+ */
+
+const AuthService = {
+  SESSION_KEY: "campuscare_current_user",
+
+  /**
+   * Attempts to log in a user with the provided credentials and selected role
+   * @param {string} identifier - Roll number, email, or username
+   * @param {string} password - Password
+   * @param {string} role - 'student' | 'admin' | 'staff'
+   * @returns {{ success: boolean, message: string, user?: object, redirectUrl?: string }}
+   */
+  login(identifier, password, role) {
+    const cleanId = (identifier || "").trim().toLowerCase();
+    const cleanPass = (password || "").trim();
+
+    if (!cleanId || !cleanPass) {
+      return {
+        success: false,
+        message: "Please enter both your ID/Email and Password."
+      };
+    }
+
+    // Locate matching user in mock store
+    const user = CAMPUS_CARE_MOCK.users.find(u => {
+      const idMatch = u.id.toLowerCase() === cleanId || u.email.toLowerCase() === cleanId;
+      const roleMatch = u.role === role;
+      return idMatch && roleMatch;
+    });
+
+    if (!user) {
+      const roleName = role.toUpperCase();
+      return {
+        success: false,
+        message: `No ${roleName} account found with "${identifier}". Try the Quick Demo buttons below.`
+      };
+    }
+
+    if (user.password !== cleanPass) {
+      return {
+        success: false,
+        message: "Incorrect password. Please try again."
+      };
+    }
+
+    // Successful login - persist session
+    const sessionUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      department: user.department,
+      year: user.year || null,
+      hostelOrDay: user.hostelOrDay || null,
+      specialization: user.specialization || null,
+      designation: user.designation || null,
+      avatar: user.avatar,
+      loginTime: new Date().toISOString()
+    };
+
+    try {
+      sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(sessionUser));
+      localStorage.setItem(this.SESSION_KEY, JSON.stringify(sessionUser));
+    } catch (e) {}
+
+    let redirectUrl = "student-dashboard.html";
+    if (user.role === "admin") {
+      redirectUrl = "admin-dashboard.html";
+    } else if (user.role === "staff") {
+      redirectUrl = "staff-dashboard.html";
+    }
+
+    return {
+      success: true,
+      message: `Welcome back, ${user.name}!`,
+      user: sessionUser,
+      redirectUrl: redirectUrl
+    };
+  },
+
+  /**
+   * Retrieves currently logged in user
+   * @returns {object|null}
+   */
+  getCurrentUser() {
+    try {
+      const sessionStr = sessionStorage.getItem(this.SESSION_KEY) || localStorage.getItem(this.SESSION_KEY);
+      if (!sessionStr) return null;
+      return JSON.parse(sessionStr);
+    } catch (e) {
+      return null;
+    }
+  },
+
+  /**
+   * Quick role switch for demo presentation
+   * @param {string} targetRole - 'student' | 'admin' | 'staff'
+   */
+  switchRole(targetRole) {
+    const user = CAMPUS_CARE_MOCK.users.find(u => u.role === targetRole);
+    if (user) {
+      const sessionUser = {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        department: user.department,
+        year: user.year || null,
+        hostelOrDay: user.hostelOrDay || null,
+        specialization: user.specialization || null,
+        designation: user.designation || null,
+        avatar: user.avatar,
+        loginTime: new Date().toISOString()
+      };
+      try {
+        sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(sessionUser));
+        localStorage.setItem(this.SESSION_KEY, JSON.stringify(sessionUser));
+      } catch (e) {}
+    }
+
+    if (targetRole === "admin") {
+      window.location.href = "admin-dashboard.html";
+    } else if (targetRole === "staff") {
+      window.location.href = "staff-dashboard.html";
+    } else {
+      window.location.href = "student-dashboard.html";
+    }
+  },
+
+  /**
+   * Logs out user and redirects to login screen
+   */
+  logout() {
+    try {
+      sessionStorage.removeItem(this.SESSION_KEY);
+      localStorage.removeItem(this.SESSION_KEY);
+    } catch (e) {}
+    window.location.href = "index.html";
+  },
+
+  /**
+   * Checks if user is authenticated with proper role
+   * If not, automatically signs in mock user for that role or redirects
+   * @param {string} requiredRole
+   */
+  requireAuth(requiredRole) {
+    let user = this.getCurrentUser();
+    if (!user || (requiredRole && user.role !== requiredRole)) {
+      // For effortless prototype browsing, auto-login the default user for this page's role
+      const defaultUser = CAMPUS_CARE_MOCK.users.find(u => u.role === requiredRole);
+      if (defaultUser) {
+        user = {
+          id: defaultUser.id,
+          name: defaultUser.name,
+          email: defaultUser.email,
+          role: defaultUser.role,
+          department: defaultUser.department,
+          year: defaultUser.year || null,
+          hostelOrDay: defaultUser.hostelOrDay || null,
+          specialization: defaultUser.specialization || null,
+          designation: defaultUser.designation || null,
+          avatar: defaultUser.avatar,
+          loginTime: new Date().toISOString()
+        };
+        try {
+          sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(user));
+          localStorage.setItem(this.SESSION_KEY, JSON.stringify(user));
+        } catch (e) {}
+      } else {
+        window.location.href = "index.html";
+        return null;
+      }
+    }
+    return user;
+  }
+};
+
+// Exports
+if (typeof window !== "undefined") {
+  window.AuthService = AuthService;
+}
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = AuthService;
+}
+
+  </script>
+  <script>
+/**
+ * CampusCare - Login Screen Controller
+ * St. Peter's Engineering College
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Elements
+  const roleTabs = document.querySelectorAll(".role-tab-btn");
+  const loginForm = document.getElementById("loginForm");
+  const identifierInput = document.getElementById("identifierInput");
+  const identifierLabel = document.getElementById("identifierLabel");
+  const identifierIcon = document.getElementById("identifierIcon");
+  const passwordInput = document.getElementById("passwordInput");
+  const togglePasswordBtn = document.getElementById("togglePasswordBtn");
+  const eyeIcon = document.getElementById("eyeIcon");
+  const submitBtn = document.getElementById("submitBtn");
+  const submitText = document.getElementById("submitText");
+  const submitSpinner = document.getElementById("submitSpinner");
+  const demoButtons = document.querySelectorAll(".demo-chip-btn");
+  const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+  const forgotModal = document.getElementById("forgotModal");
+  const closeForgotModal = document.getElementById("closeForgotModal");
+  const dismissModalBtn = document.getElementById("dismissModalBtn");
+  const toastContainer = document.getElementById("toastContainer");
+
+  // State
+  let currentRole = "student";
+
+  // Role Metadata Configuration
+  const roleConfigs = {
+    student: {
+      label: "Student Roll No. / Email",
+      placeholder: "e.g., 21SPEC0142 or student@stpeters.edu.in",
+      demoId: "21SPEC0142",
+      demoPass: "student123",
+      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`
+    },
+    admin: {
+      label: "Campus Admin Email / ID",
+      placeholder: "e.g., admin@stpeters.edu.in",
+      demoId: "admin@stpeters.edu.in",
+      demoPass: "admin123",
+      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M14 9h4"/><path d="M14 15h4"/></svg>`
+    },
+    staff: {
+      label: "Staff ID / College Email",
+      placeholder: "e.g., staff@stpeters.edu.in",
+      demoId: "staff@stpeters.edu.in",
+      demoPass: "staff123",
+      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`
+    }
+  };
+
+  /**
+   * Switch Active Role
+   */
+  function setRole(newRole) {
+    if (!roleConfigs[newRole]) return;
+    currentRole = newRole;
+
+    // Update active tab buttons
+    roleTabs.forEach(btn => {
+      const isSelected = btn.getAttribute("data-role") === newRole;
+      btn.classList.toggle("active", isSelected);
+      btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+    });
+
+    // Update form field label, icon and placeholder
+    const config = roleConfigs[newRole];
+    identifierLabel.textContent = config.label;
+    identifierInput.placeholder = config.placeholder;
+    identifierIcon.innerHTML = config.icon;
+  }
+
+  // Bind Role tab clicks
+  roleTabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const selectedRole = btn.getAttribute("data-role");
+      setRole(selectedRole);
+    });
+  });
+
+  /**
+   * Quick 1-Click Demo Fill
+   */
+  demoButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const role = btn.getAttribute("data-demo-role");
+      setRole(role);
+      const config = roleConfigs[role];
+      identifierInput.value = config.demoId;
+      passwordInput.value = config.demoPass;
+
+      showToast(`Prefilled demo credentials for ${role.toUpperCase()}`, "info");
+
+      // Give visual focus to Sign In button
+      submitBtn.focus();
+    });
+  });
+
+  /**
+   * Toggle Password Visibility
+   */
+  togglePasswordBtn.addEventListener("click", () => {
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    
+    // Toggle SVG icon
+    if (isPassword) {
+      eyeIcon.innerHTML = `
+        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+        <line x1="1" y1="1" x2="23" y2="23"></line>
+      `;
+      togglePasswordBtn.setAttribute("aria-label", "Hide password");
+    } else {
+      eyeIcon.innerHTML = `
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      `;
+      togglePasswordBtn.setAttribute("aria-label", "Show password");
+    }
+  });
+
+  /**
+   * Handle Form Submission & Mock Auth
+   */
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const identifier = identifierInput.value;
+    const password = passwordInput.value;
+
+    // Set loading button state
+    submitBtn.disabled = true;
+    submitText.textContent = "Verifying Credentials...";
+    submitSpinner.style.display = "inline-block";
+
+    // Simulate minor network/verification delay for natural feel
+    setTimeout(() => {
+      const result = AuthService.login(identifier, password, currentRole);
+
+      if (result.success) {
+        showToast(result.message + " Redirecting...", "success");
+        submitText.textContent = "Redirecting to Dashboard...";
+        
+        setTimeout(() => {
+          window.location.href = result.redirectUrl;
+        }, 800);
+      } else {
+        submitBtn.disabled = false;
+        submitText.textContent = "Sign In";
+        submitSpinner.style.display = "none";
+        showToast(result.message, "error");
+      }
+    }, 450);
+  });
+
+  /**
+   * Toast notification helper
+   */
+  function showToast(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+
+    let iconSvg = "";
+    if (type === "success") {
+      iconSvg = `<svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`;
+    } else if (type === "error") {
+      iconSvg = `<svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>`;
+    } else {
+      iconSvg = `<svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`;
+    }
+
+    toast.innerHTML = `${iconSvg}<span>${message}</span>`;
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.animation = "fadeOut 0.3s forwards";
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  }
+
+  /**
+   * Forgot Password Modal Handlers
+   */
+  if (forgotPasswordLink && forgotModal) {
+    forgotPasswordLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      forgotModal.classList.add("active");
+    });
+
+    const closeModal = () => {
+      forgotModal.classList.remove("active");
+    };
+
+    if (closeForgotModal) closeForgotModal.addEventListener("click", closeModal);
+    if (dismissModalBtn) dismissModalBtn.addEventListener("click", closeModal);
+
+    forgotModal.addEventListener("click", (e) => {
+      if (e.target === forgotModal) closeModal();
+    });
+  }
+});
+
+  </script>
+</body>
+</html>

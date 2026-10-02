@@ -1,0 +1,64 @@
+/* ========================================================
+   CampusCare - Design Tokens & Variables
+   St. Peter's Engineering College Maroon & White Theme
+   ======================================================== */
+
+:root {
+  /* Brand Palette - St. Peter's Maroon / Burgundy */
+  --color-maroon-darker: #4A0B17;
+  --color-maroon-dark:   #5C0E1D;
+  --color-maroon:        #781226;  /* Primary College Maroon */
+  --color-maroon-light:  #941931;
+  --color-maroon-subtle: #FBF0F2;
+  --color-maroon-glow:   rgba(120, 18, 38, 0.18);
+
+  /* Accent - Academic Gold */
+  --color-gold:          #C89B2B;
+  --color-gold-light:    #E9BD4D;
+  --color-gold-soft:     #FFF8E7;
+  --color-gold-dark:     #9A7318;
+
+  /* Neutrals */
+  --color-white:         #FFFFFF;
+  --color-bg-page:       #F7F8FA;
+  --color-surface:       #FFFFFF;
+  --color-border:        #E2E8F0;
+  --color-border-hover:  #CBD5E1;
+  
+  /* Text */
+  --color-text-main:     #1E293B;
+  --color-text-muted:    #64748B;
+  --color-text-light:    #94A3B8;
+  --color-text-inverse:  #FFFFFF;
+
+  /* Feedback Colors */
+  --color-success:       #0F766E;
+  --color-success-bg:    #E6FFFA;
+  --color-danger:        #B91C1C;
+  --color-danger-bg:     #FEF2F2;
+  --color-warning:       #B45309;
+  --color-warning-bg:    #FFFBEB;
+  --color-info:          #1D4ED8;
+  --color-info-bg:       #EFF6FF;
+
+  /* Typography */
+  --font-family-base:    'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif:   'Georgia', 'Times New Roman', serif;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg:  0 10px 25px -3px rgba(120, 18, 38, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl:  0 20px 40px -5px rgba(92, 14, 29, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.06);
+
+  /* Border Radii */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s ease;
+}
